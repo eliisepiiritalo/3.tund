@@ -1,6 +1,6 @@
 <?php
 	
-	//võtab ja kopereerib faili sisu
+	//vÃµtab ja kopereerib faili sisu
 	require("../../config.php");
 	
 	
@@ -20,12 +20,12 @@
 		
 		if ( empty ( $_POST["signupEmail"] ) ) {
 			
-			// oli email, kuid see oli tühi
-			$signupEmailError = "See väli on kohustuslik!";
+			// oli email, kuid see oli tÃ¼hi
+			$signupEmailError = "See vÃ¤li on kohustuslik!";
 			
 		}else {
 			
-			//email on õige
+			//email on Ãµige
 			$signupEmail = $_POST["signupEmail"];
 			
 		}
@@ -36,38 +36,38 @@
 		
 		if ( empty ( $_POST["signupPassword"] ) ) {
 			
-			// oli password, kuid see oli tühi
-			$signupPasswordError = "See väli on kohustuslik!";
+			// oli password, kuid see oli tÃ¼hi
+			$signupPasswordError = "See vÃ¤li on kohustuslik!";
 			
 		} 
 			
 	
 			
-		// tean et parool on ja see ei olnud tühi
-		// VÄHEMALT 8
+		// tean et parool on ja see ei olnud tÃ¼hi
+		// VÃ„HEMALT 8
 		
 		if ( strlen($_POST["signupPassword"]) < 8 ) {
 			
-			$signupPasswordError = "Parool peab olema vähemalt 8 tähemärkki pikk";
+			$signupPasswordError = "Parool peab olema vÃ¤hemalt 8 tÃ¤hemÃ¤rkki pikk";
 			
 		}
 		
 	}
 	
 	$gender = "male";
-	// KUI Tühi
+	// KUI TÃ¼hi
 	// $gender = "";
 	
 	if ( isset ( $_POST["gender"] ) ) {
 		if ( empty ( $_POST["gender"] ) ) {
-			$genderError = "See väli on kohustuslik!";
+			$genderError = "See vÃ¤li on kohustuslik!";
 		} else {
 			$gender = $_POST["gender"];
 		}
 	}
 	
 	
-	//Kus tean et ühtegi viga ei olnud ja saan kasutada andmed salvestada
+	//Kus tean et Ã¼htegi viga ei olnud ja saan kasutada andmed salvestada
 	if ( isset($_POST["signupPassword"]) &&
 		isset($_POST["signupEmail"]) &&
 		empty ($signupEmailError) &&
@@ -80,7 +80,7 @@
 		$password = hash("sha512", $_POST["signupPassword"]);
 		
 		echo "parool ".$_POST["signupPassword"]."<br>";
-		echo "räsi ".$password."<br>";
+		echo "rÃ¤si ".$password."<br>";
 		
 		//echo $serverUsername;
 		
@@ -88,13 +88,13 @@
 		
 		$mysqli = new mysqli($serverHost,$serverUsername,$serverPassword,$database);
 		
-		//käsk
+		//kÃ¤sk
 		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?, ?)");
 		
 		echo $mysqli->error;
 		
-		//asendan küsimärgi väärtustega
-		//iga muutuja kohta 1 täht, mis tüüpi muutuja on
+		//asendan kÃ¼simÃ¤rgi vÃ¤Ã¤rtustega
+		//iga muutuja kohta 1 tÃ¤ht, mis tÃ¼Ã¼pi muutuja on
 		//s - string
 		//i - integer
 		//d - double/float
@@ -102,7 +102,7 @@
 		
 		if($stmt->execute()) {
 			
-			echo "salvestamine õnnestus";
+			echo "salvestamine Ãµnnestus";
 		} else {
 			echo "ERROR ".$STMT->ERROR;
 		}
@@ -115,7 +115,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sisselogimise lehekülg</title>
+		<title>Sisselogimise lehekÃ¼lg</title>
 	</head>
 	<body>
 
